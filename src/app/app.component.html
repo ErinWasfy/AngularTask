@@ -1,0 +1,24 @@
+<router-outlet></router-outlet>
+  <table class="center" style="border-top: 1px solid;border-collapse: collapse;border-left:1px solid black;border-right:1px solid black; width:520px;text-indent: 0%;margin-top: 0%;padding-top: 0%;border-bottom: 1px solid;" *ngFor="let rpt of reportData;let i=index">
+   
+    <tr>
+      <th style="border-style: none;" *ngIf="rpt.state!='Resolved'"></th>
+      <th style="border-style: none;" *ngIf="rpt.state!='Resolved'"> </th>
+      <th style="border-style: none;" *ngIf="rpt.state!='Resolved'"> </th>
+    </tr>
+    <tr style="border-top:0px darkblue;width: auto;border-bottom: 1px;" *ngIf="rpt.state!='Resolved'">
+    
+      <td style="border-style: none;border-top:0px;margin-top: 0%;padding-top: 0%;;font-size: 12px;font-family: Arial, Helvetica, sans-serif;" *ngIf="rpt.state!='Resolved'"><div style="padding-top: 5px;"><b>Id:</b>{{rpt.id}}<br></div>
+         <div style="margin-top: 10px;"><b>State:</b>{{rpt.state}} </div>  <br>
+          <a href="#">Details</a>
+        </td>&nbsp;
+        <td style="text-align:left;text-align: justify;margin-top: 0%;padding-bottom: 8%;margin-left: 0%;padding-top: 0%;font-size: 12px;font-family: Arial, Helvetica, sans-serif;" *ngIf="rpt.state!='Resolved'">
+          <div style="margin-top: 0px;padding-top: 20px;"><b>Type:</b>{{rpt.payload.reportType}}<br></div>
+         <div style="padding-top: 10px;"><b>Message:</b>{{rpt.payload.message}}</div>
+        </td>
+        <td style="text-align: right;padding-left: 20px;;" *ngIf="rpt.state!='Resolved'">
+          <button style="width: 100px;" (click)="changeToBlockState(i)">Block</button><br>
+          <button style="width: 100px;margin-top: 10px;" (click)="resolveSpam(i)">Resolve</button> </td>
+      
+        </tr>
+</table>
